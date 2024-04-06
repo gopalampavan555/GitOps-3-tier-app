@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontend:24
   namespace: workshop
   labels:
-    role: frontend
+    role: frontend:24
     env: demo
 spec:
   replicas: 1
@@ -15,15 +15,15 @@ spec:
       maxUnavailable: 25%
   selector:
     matchLabels:
-      role: frontend
+      role: frontend:24
   template:
     metadata:
       labels:
-        role: frontend
+        role: frontend:24
     spec:
       containers:
-      - name: frontend
-        image: kalyan555/frontend:latest #public.ecr.aws/w0r5j4b6/frontend:latest
+      - name: frontend:24
+        image: kalyan555/frontend:24
         imagePullPolicy: Always
         env:
           - name: REACT_APP_BACKEND_URL
